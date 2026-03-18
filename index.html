@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniMarket - ตลาดมือสองของชาวเรา</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-md p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-600">UniMarket</h1>
+            <div id="auth-buttons">
+                <button onclick="openModal('login-modal')" class="text-gray-600 px-4">เข้าสู่ระบบ</button>
+                <button onclick="openModal('post-modal')" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">+ ลงขายของ</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container mx-auto mt-6 px-4">
+        <h2 class="text-lg font-semibold mb-3">เลือกตามคณะ/หมวดหมู่</h2>
+        <div class="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
+            <button onclick="filterByFaculty('ทั้งหมด')" class="filter-btn active">ทั้งหมด</button>
+            <button onclick="filterByFaculty('วิศวกรรมศาสตร์')" class="filter-btn">วิศวกรรม</button>
+            <button onclick="filterByFaculty('บริหารธุรกิจ')" class="filter-btn">บริหาร</button>
+            <button onclick="filterByFaculty('ศิลปกรรมศาสตร์')" class="filter-btn">ศิลปกรรม</button>
+            <button onclick="filterByFaculty('ทั่วไป')" class="filter-btn">ทั่วไป</button>
+        </div>
+    </section>
+
+    <main class="container mx-auto mt-6 px-4">
+        <div id="product-list" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <p class="col-span-full text-center text-gray-400">กำลังโหลดสินค้า...</p>
+        </div>
+    </main>
+
+    <div id="post-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md">
+            <h2 class="text-xl font-bold mb-4">ลงประกาศสินค้า</h2>
+            <input type="text" id="p-title" placeholder="ชื่อสินค้า" class="w-full border p-2 mb-3 rounded">
+            <select id="p-faculty" class="w-full border p-2 mb-3 rounded">
+                <option value="ทั่วไป">เลือกคณะ</option>
+                <option value="วิศวกรรมศาสตร์">วิศวกรรมศาสตร์</option>
+                <option value="บริหารธุรกิจ">บริหารธุรกิจ</option>
+            </select>
+            <input type="file" id="p-image" class="mb-3">
+            <div class="flex justify-end gap-2">
+                <button onclick="closeModal('post-modal')" class="text-gray-500">ยกเลิก</button>
+                <button id="btn-upload" class="bg-blue-600 text-white px-6 py-2 rounded">โพสต์เลย</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
