@@ -1,15 +1,97 @@
+/* Import Google Font เพื่อความทันสมัย */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap');
+
+:root {
+    --primary-color: #1e3a8a;    /* Deep Blue - ดูเป็นทางการ */
+    --secondary-color: #3b82f6;  /* Bright Blue - สำหรับปุ่ม Action */
+    --accent-color: #f59e0b;     /* Amber - สำหรับราคาหรือจุดเน้น */
+    --bg-light: #f8fafc;        /* Slate 50 - พื้นหลังนวลตา */
+    --text-main: #1e293b;        /* Slate 800 - ตัวอักษรหลัก */
+}
+
+body {
+    font-family: 'Kanit', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar สำหรับเมนูหมวดหมู่ */
 .no-scrollbar::-webkit-scrollbar {
     display: none;
 }
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
 
+/* Navigation Styling */
+nav {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Category Filter Buttons */
 .filter-btn {
-    @apply px-4 py-2 rounded-full border border-gray-300 whitespace-nowrap bg-white transition-all;
+    @apply px-5 py-2 rounded-full border border-gray-200 bg-white text-gray-600 
+    transition-all duration-300 ease-in-out whitespace-nowrap shadow-sm;
+    font-weight: 500;
+}
+
+.filter-btn:hover {
+    @apply border-blue-400 text-blue-600 shadow-md;
+    transform: translateY(-2px);
 }
 
 .filter-btn.active {
-    @apply bg-blue-600 text-white border-blue-600;
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
 }
 
+/* Product Card Styling */
 .product-card {
-    @apply bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden border border-gray-100;
+    @apply bg-white rounded-2xl overflow-hidden transition-all duration-300;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.product-card img {
+    @apply transition-transform duration-500;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Modal Styling */
+#post-modal > div {
+    animation: modalSlideUp 0.3s ease-out;
+}
+
+@keyframes modalSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Input Fields */
+input, select, textarea {
+    @apply w-full border border-gray-200 p-3 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all;
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    @apply text-white font-medium px-6 py-2 rounded-xl transition-all shadow-lg;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 8px 15px rgba(59, 130, 246, 0.4);
 }
