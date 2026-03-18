@@ -1,0 +1,15 @@
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-btn {
+    @apply px-4 py-2 rounded-full border border-gray-300 whitespace-nowrap bg-white transition-all;
+}
+
+.filter-btn.active {
+    @apply bg-blue-600 text-white border-blue-600;
+}
+
+.product-card {
+    @apply bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden border border-gray-100;
+}
